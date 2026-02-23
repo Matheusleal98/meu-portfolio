@@ -1,102 +1,105 @@
-// GitHub Projects Loader
-const DEFAULT_USERNAME = "Matheusleal98"; // Configurado para o seu GitHub
+// CONFIGURAÇÕES DE TEMA (DARK/LIGHT)
+const themeToggle = document.getElementById('theme-toggle');
+const themeIcon = document.getElementById('theme-icon');
+const html = document.documentElement;
 
+// Verifica preferência anterior ou do sistema
+if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    html.classList.add('dark');
+    updateThemeUI(true);
+} else {
+    html.classList.remove('dark');
+    updateThemeUI(false);
+}
+
+function updateThemeUI(isDark) {
+    themeIcon.setAttribute('data-feather', isDark ? 'sun' : 'moon');
+    if (window.feather) feather.replace();
+}
+
+themeToggle.addEventListener('click', () => {
+    const isDark = html.classList.toggle('dark');
+    localStorage.theme = isDark ? 'dark' : 'light';
+    updateThemeUI(isDark);
+});
+
+function copyEmail() {
+    const email = "matheussleal98@gmail.com";
+    navigator.clipboard.writeText(email).then(() => {
+        const icon = document.getElementById('copy-icon');
+        icon.setAttribute('data-feather', 'check');
+        feather.replace(); // Atualiza o ícone para o check
+        
+        setTimeout(() => {
+            icon.setAttribute('data-feather', 'copy');
+            feather.replace(); // Volta para o ícone de cópia
+        }, 2000);
+    });
+}
+
+// NAVBAR SCROLL EFFECT
+window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    if (window.scrollY > 20) {
+        nav.classList.add('bg-white/80', 'dark:bg-slate-950/80', 'shadow-lg', 'border-slate-200', 'dark:border-slate-800');
+        nav.classList.remove('py-4');
+        nav.classList.add('py-2');
+    } else {
+        nav.classList.remove('bg-white/80', 'dark:bg-slate-950/80', 'shadow-lg', 'border-slate-200', 'dark:border-slate-800', 'py-2');
+        nav.classList.add('py-4');
+    }
+});
+
+// GITHUB REPOS LOADER
 async function loadGithubProjects() {
-    const projectsGrid = document.getElementById("projects-grid");
-    if (!projectsGrid) return;
-
-    // Estado de carregamento (Loading)
-    projectsGrid.innerHTML = `
-        <div class="col-span-full flex justify-center py-12">
-            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-500"></div>
-        </div>
-    `;
+    const grid = document.getElementById("projects-grid");
+    if (!grid) return;
 
     try {
-        const response = await fetch(
-            `https://api.github.com/users/${DEFAULT_USERNAME}/repos?sort=updated&per_page=6`,
-        );
-
-        if (!response.ok) throw new Error("Erro na API do GitHub");
-
+        const response = await fetch('https://api.github.com/users/Matheusleal98/repos?sort=updated&per_page=6');
         const repos = await response.json();
+        
+        grid.innerHTML = ""; // Limpa o loader
 
-        if (repos.length === 0) {
-            projectsGrid.innerHTML = `<p class="col-span-full text-center text-slate-400">Nenhum repositório encontrado.</p>`;
-            return;
-        }
-
-        projectsGrid.innerHTML = "";
-
-        repos.forEach((repo) => {
-            // Criação do Card Manual para ser compatível com o CSS do site
+        repos.forEach(repo => {
             const card = document.createElement("div");
-            card.className = "p-6 bg-slate-900 border border-slate-800 rounded-2xl hover:border-indigo-500/50 transition-all flex flex-col justify-between group";
+            card.className = "p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl hover:border-indigo-500 transition-all duration-300 group shadow-sm hover:shadow-xl flex flex-col justify-between";
             
             card.innerHTML = `
                 <div>
-                    <div class="flex justify-between items-start mb-4">
-                        <i data-feather="folder" class="text-indigo-400 w-6 h-6"></i>
-                        <div class="flex gap-3 text-slate-500">
-                            <span class="flex items-center gap-1 text-[10px]"><i data-feather="star" class="w-3 h-3"></i> ${repo.stargazers_count}</span>
-                            <a href="${repo.html_url}" target="_blank" class="hover:text-white transition-colors"><i data-feather="github" class="w-5 h-5"></i></a>
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="p-3 bg-indigo-50 dark:bg-indigo-500/10 rounded-lg">
+                            <i data-feather="folder" class="text-indigo-600 dark:text-indigo-400 w-6 h-6"></i>
                         </div>
+                        <a href="${repo.html_url}" target="_blank" class="text-slate-400 hover:text-indigo-600 transition-colors">
+                            <i data-feather="github" class="w-5 h-5"></i>
+                        </a>
                     </div>
-                    <h4 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">${repo.name}</h4>
-                    <p class="text-sm text-slate-400 mb-6 line-clamp-2">${repo.description || "Projeto focado em engenharia de software e backend robusto."}</p>
+                    <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-3">${repo.name}</h4>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-6 line-clamp-2">
+                        ${repo.description || "Projeto de engenharia focado em escalabilidade e performance."}
+                    </p>
                 </div>
-                <div class="flex flex-wrap gap-2">
-                    <span class="text-[10px] bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-2 py-1 rounded-md font-mono">${repo.language || 'Tech'}</span>
+                <div class="flex items-center gap-4">
+                    <span class="text-[10px] font-bold font-mono px-2 py-1 bg-indigo-100 dark:bg-indigo-500/20 text-indigo-700 dark:text-indigo-400 rounded uppercase">
+                        ${repo.language || 'Software'}
+                    </span>
+                    <span class="text-[10px] text-slate-400 flex items-center gap-1">
+                        <i data-feather="star" class="w-3 h-3"></i> ${repo.stargazers_count}
+                    </span>
                 </div>
             `;
-            projectsGrid.appendChild(card);
+            grid.appendChild(card);
         });
-
         feather.replace();
     } catch (error) {
-        console.error("Erro:", error);
-        resetToDefaultProjects(); // Se falhar a API, mostra os projetos fixos
+        console.error("Erro ao carregar GitHub:", error);
+        grid.innerHTML = "<p class='text-slate-500'>Falha ao carregar repositórios.</p>";
     }
 }
 
-function resetToDefaultProjects() {
-    const projectsGrid = document.getElementById("projects-grid");
-    if (!projectsGrid) return;
-
-    // Seus projetos principais fixos (Caso a API falhe ou queira destacar)
-    const defaults = [
-        { title: "Desafio VM", desc: "Sistema de gerenciamento de vendas e produtos com Spring Boot.", lang: "Java" },
-        { title: "Angular Migration", desc: "Projeto focado na modernização de interfaces para Angular 17.", lang: "Angular" },
-        { title: "K8s Deploy", desc: "Scripts e configurações para orquestração de containers.", lang: "DevOps" }
-    ];
-
-    projectsGrid.innerHTML = defaults.map(p => `
-        <div class="p-6 bg-slate-900 border border-slate-800 rounded-2xl hover:border-emerald-500/50 transition-all">
-            <i data-feather="box" class="text-emerald-400 w-6 h-6 mb-4"></i>
-            <h4 class="text-xl font-bold text-white mb-2">${p.title}</h4>
-            <p class="text-sm text-slate-400 mb-4">${p.desc}</p>
-            <span class="text-[10px] bg-slate-800 px-2 py-1 rounded font-mono">${p.lang}</span>
-        </div>
-    `).join('');
-    feather.replace();
-}
-
 // Inicialização
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
     loadGithubProjects();
-
-    // Efeito de Revelação (Scroll Reveal)
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('opacity-100', 'translate-y-0');
-                entry.target.classList.remove('opacity-0', 'translate-y-8');
-            }
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('section').forEach(section => {
-        section.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-8');
-        observer.observe(section);
-    });
+    feather.replace();
 });

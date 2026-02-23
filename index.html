@@ -4,59 +4,68 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Matheus Leal | Software Engineer & DevOps</title>
-  <meta name="title" content="Matheus Leal | Software Engineer & DevOps">
-  <meta name="description"
-    content="Especialista em Engenharia de Software Sênior com foco em Java, Spring Boot, Angular 17 e infraestrutura escalável com Kubernetes e Docker. Conheça meus projetos de alta criticidade.">
-  <meta name="keywords"
-    content="Matheus Leal, Engenheiro de Software, Engineer, Java, Spring Boot, Angular 17, DevOps, Kubernetes, Brasília, Desenvolvimento de Sistemas">
-  <meta name="author" content="Matheus Leal">
-  <meta name="robots" content="index, follow">
-
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://matheusleal98.github.io/">
-  <meta property="og:title" content="Matheus Leal | Software Engineer">
-  <meta property="og:description"
-    content="Engenheiro de Software focado em sistemas distribuídos e modernização de arquiteturas enterprise.">
-  <meta property="og:image" content="https://matheusleal98.github.io/assets/Foto%20de%20Perfil.png">
-
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:title" content="Matheus Leal | Software Engineer">
-  <meta property="twitter:description" content="Especialista em Java e DevOps focado em escalabilidade.">
-
-  <link rel="icon" type="image/x-icon"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>" />
 
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          animation: { 'blob': 'blob 7s infinite' },
+          keyframes: {
+            blob: {
+              '0%': { transform: 'translate(0px, 0px) scale(1)' },
+              '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+              '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+              '100%': { transform: 'translate(0px, 0px) scale(1)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
   <script src="https://unpkg.com/feather-icons"></script>
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap"
     rel="stylesheet" />
+  <style>
+    .animation-delay-2000 {
+      animation-delay: 2s;
+    }
+
+    body {
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+  </style>
 </head>
 
-<body class="bg-slate-950 text-slate-200 font-['Inter'] antialiased">
+<body class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-200 font-['Inter'] antialiased">
+
   <nav id="navbar"
-    class="fixed top-0 w-full z-[100] transition-all duration-300 border-b border-transparent py-4 bg-slate-950/20 backdrop-blur-sm">
+    class="fixed top-0 w-full z-[100] transition-all duration-300 border-b border-transparent py-4 bg-white/10 dark:bg-slate-950/20 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
       <a href="#home" class="flex items-center gap-2 group">
         <div
-          class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center group-hover:rotate-12 transition-transform">
+          class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center group-hover:rotate-12 transition-transform shadow-lg shadow-indigo-500/20">
           <span class="text-white font-black text-sm">M</span>
         </div>
-        <span class="font-mono font-bold text-white tracking-tighter text-lg hidden sm:block">matheus.leal()</span>
+        <span
+          class="font-mono font-bold text-slate-900 dark:text-white tracking-tighter text-lg hidden sm:block">matheus.leal()</span>
       </a>
 
-      <div class="flex items-center gap-4 sm:gap-10">
+      <div class="flex items-center gap-3 sm:gap-8">
+        <button id="theme-toggle"
+          class="p-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-indigo-500 transition-all">
+          <i id="theme-icon" data-feather="moon" class="w-4 h-4 text-indigo-600 dark:text-indigo-400"></i>
+        </button>
         <a href="#about"
-          class="text-[10px] sm:text-xs font-mono text-slate-400 hover:text-indigo-400 transition-colors uppercase tracking-widest">Sobre</a>
+          class="text-[10px] sm:text-xs font-mono text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 uppercase tracking-widest">Sobre</a>
         <a href="#projects"
-          class="text-[10px] sm:text-xs font-mono text-slate-400 hover:text-indigo-400 transition-colors uppercase tracking-widest">Projetos</a>
-        <a href="#contact"
-          class="text-[10px] sm:text-xs font-mono text-slate-400 hover:text-indigo-400 transition-colors uppercase tracking-widest">Contatos</a>
+          class="text-[10px] sm:text-xs font-mono text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 uppercase tracking-widest">Projetos</a>
         <a href="https://wa.me/5561993809472" target="_blank"
-          class="px-3 py-2 sm:px-4 sm:py-2 bg-indigo-600/10 border border-indigo-500/20 text-indigo-400 rounded-lg text-[10px] sm:text-xs font-mono hover:bg-indigo-600 hover:text-white transition-all">Entrar
-          em contato</a>
+          class="px-3 py-2 sm:px-4 sm:py-2 bg-indigo-600 text-white dark:bg-indigo-600/10 dark:text-indigo-400 border border-transparent dark:border-indigo-500/20 rounded-lg text-[10px] sm:text-xs font-mono hover:bg-indigo-700 dark:hover:bg-indigo-600 dark:hover:text-white transition-all shadow-md">Contato</a>
       </div>
     </div>
   </nav>
@@ -65,115 +74,119 @@
     class="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 pb-16 lg:pt-20 lg:pb-20">
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
       <div
-        class="absolute -top-20 -right-20 w-64 h-64 bg-indigo-600 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob">
+        class="absolute -top-20 -right-20 w-96 h-96 bg-indigo-500/20 dark:bg-indigo-600/10 rounded-full filter blur-3xl animate-blob">
       </div>
       <div
-        class="absolute -bottom-20 -left-20 w-64 h-64 bg-emerald-600 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000">
+        class="absolute -bottom-20 -left-20 w-96 h-96 bg-emerald-500/20 dark:bg-emerald-600/10 rounded-full filter blur-3xl animate-blob animation-delay-2000">
       </div>
     </div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-
       <div class="order-1 lg:order-2 flex justify-center">
         <div class="relative group">
           <div
             class="absolute inset-0 bg-gradient-to-r from-indigo-500 to-emerald-500 rounded-2xl blur-2xl opacity-20 transform group-hover:rotate-3 transition-transform duration-700">
           </div>
           <div
-            class="relative w-64 h-80 sm:w-72 sm:h-96 lg:w-[380px] lg:h-[460px] rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 shadow-2xl">
+            class="relative w-64 h-80 sm:w-72 sm:h-96 lg:w-[380px] lg:h-[460px] rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xl">
             <img src="./assets/foto_perfil.jpg" alt="Matheus Leal"
               class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
               style="object-position: 50% 15%" />
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
-
             <div
-              class="absolute bottom-4 left-4 right-4 p-3 bg-slate-950/90 backdrop-blur-md rounded-lg border border-slate-800 font-mono text-[9px] sm:text-xs">
-              <p class="text-emerald-400">class <span class="text-indigo-400">Software Engineer</span> {</p>
-              <p class="pl-3 text-slate-300">stack: <span class="text-orange-400">['Java', 'K8s']</span>,</p>
-              <p class="pl-3 text-slate-300">status: <span class="text-orange-400">'Ready'</span></p>
-              <p class="text-emerald-400">}</p>
+              class="absolute inset-0 bg-gradient-to-t from-slate-900/60 dark:from-slate-950/80 via-transparent to-transparent">
+            </div>
+            <div
+              class="absolute bottom-4 left-4 right-4 p-3 bg-white/90 dark:bg-slate-950/90 backdrop-blur-md rounded-lg border border-slate-200 dark:border-slate-800 font-mono text-[9px] sm:text-xs shadow-xl">
+              <p class="text-indigo-600 dark:text-emerald-400">class <span
+                  class="text-indigo-500 dark:text-indigo-400">SoftwareEngineer</span> {</p>
+              <p class="pl-3 text-slate-600 dark:text-slate-300">stack: <span
+                  class="text-orange-600 dark:text-orange-400">['Java', 'K8s']</span>,</p>
+              <p class="pl-3 text-slate-600 dark:text-slate-300">status: <span
+                  class="text-orange-600 dark:text-orange-400">'Ready'</span></p>
+              <p class="text-indigo-600 dark:text-emerald-400">}</p>
             </div>
           </div>
         </div>
       </div>
 
       <div class="space-y-6 lg:space-y-8 order-2 lg:order-1 text-center lg:text-left">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800">
+        <div
+          class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
           <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span class="text-[10px] sm:text-xs font-mono text-slate-400 uppercase tracking-widest">Disponível para
-            oportunidades</span>
+          <span
+            class="text-[10px] sm:text-xs font-mono text-slate-600 dark:text-slate-400 uppercase tracking-widest">Disponível
+            para oportunidades</span>
         </div>
 
         <h1 class="flex flex-col gap-1">
-          <span class="text-lg lg:text-2xl font-mono text-slate-500">Olá, eu sou</span>
+          <span class="text-lg lg:text-2xl font-mono text-slate-400 dark:text-slate-500">Olá, eu sou</span>
           <span
-            class="text-4xl sm:text-6xl lg:text-8xl font-black leading-tight text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-white to-emerald-400">
+            class="text-4xl sm:text-6xl lg:text-8xl font-black leading-tight text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-slate-800 to-emerald-600 dark:from-indigo-400 dark:via-white dark:to-emerald-400">
             Matheus Leal
           </span>
           <span
-            class="mt-2 text-xl sm:text-2xl lg:text-4xl font-light text-slate-300 uppercase tracking-widest border-l-4 border-indigo-500 pl-4 mx-auto lg:mx-0 w-fit">
-            Software <span class="font-bold text-white">Engineer</span>
+            class="mt-2 text-xl sm:text-2xl lg:text-4xl font-light text-slate-500 dark:text-slate-300 uppercase tracking-widest border-l-4 border-indigo-500 pl-4 mx-auto lg:mx-0 w-fit">
+            Software <span class="font-bold text-slate-900 dark:text-white">Engineer</span>
           </span>
         </h1>
 
-        <p class="text-sm sm:text-base lg:text-lg text-slate-400 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-          Especialista em arquiteturas de alta criticidade e modernização de sistemas. Transformo legados em
-          soluções escaláveis utilizando <strong>Java 21</strong>, <strong>Spring Boot</strong> e a reatividade do
-          <strong>Angular 17 com Signals</strong>.
+        <p
+          class="text-sm sm:text-base lg:text-lg text-slate-600 dark:text-slate-400 max-w-lg mx-auto lg:mx-0 leading-relaxed font-medium">
+          Especialista em arquiteturas de alta criticidade e modernização de sistemas. Transformo legados em soluções
+          escaláveis utilizando <strong>Java 21</strong>, <strong>Spring Boot</strong> e <strong>Angular 17</strong>.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
           <a href="#projects"
-            class="w-full sm:w-auto px-8 py-4 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-500 hover:scale-105 transition-all text-center">
-            Ver Projetos
-          </a>
-
+            class="w-full sm:w-auto px-8 py-4 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-500 hover:scale-105 transition-all text-center">Ver
+            Projetos</a>
           <a href="https://linkedin.com/in/matheusleal98/" target="_blank"
-            class="w-full sm:w-auto px-8 py-4 bg-slate-900 border border-slate-700 rounded-xl font-bold hover:border-indigo-500 hover:scale-105 transition-all text-center flex items-center justify-center gap-2">
+            class="w-full sm:w-auto px-8 py-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white rounded-xl font-bold hover:border-indigo-500 hover:scale-105 transition-all text-center flex items-center justify-center gap-2 shadow-sm">
             <i data-feather="linkedin" class="w-4 h-4"></i> LinkedIn
           </a>
-
-          <a href="https://docs.google.com/document/d/1uOTh_26L1OZ44Ckk9ZJg0LIwwpNF_myvaNUL0R_VDVc/export?format=pdf&tab=t.0" download="Currículo - Matheus Leal"
-            class="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-indigo-600 text-indigo-400 rounded-xl font-bold hover:bg-indigo-600/10 hover:scale-105 transition-all text-center flex items-center justify-center gap-2">
+          <a href="https://docs.google.com/document/d/1uOTh_26L1OZ44Ckk9ZJg0LIwwpNF_myvaNUL0R_VDVc/export?format=pdf"
+            download
+            class="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-indigo-600 text-indigo-600 dark:text-indigo-400 rounded-xl font-bold hover:bg-indigo-600/10 hover:scale-105 transition-all text-center flex items-center justify-center gap-2">
             <i data-feather="download" class="w-4 h-4"></i> Baixar CV
           </a>
         </div>
 
         <div class="pt-4">
-          <p class="text-[10px] uppercase tracking-widest text-slate-500 mb-4 font-bold">Tech Stack Principal</p>
-          <div class="flex flex-wrap justify-center lg:justify-start gap-4 opacity-60">
+          <p class="text-[10px] uppercase tracking-widest text-slate-400 mb-4 font-bold">Tech Stack Principal</p>
+          <div
+            class="flex flex-wrap justify-center lg:justify-start gap-4 opacity-70 hover:opacity-100 transition-opacity">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
-              class="w-8 h-8 sm:w-10 sm:h-10 hover:opacity-100 transition-opacity" title="Java" />
+              class="w-8 h-8 sm:w-10 sm:h-10" title="Java" />
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg"
-              class="w-8 h-8 sm:w-10 sm:h-10 hover:opacity-100 transition-opacity" title="Spring Boot" />
+              class="w-8 h-8 sm:w-10 sm:h-10" title="Spring Boot" />
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-plain.svg"
-              class="w-8 h-8 sm:w-10 sm:h-10 hover:opacity-100 transition-opacity" title="Angular" />
+              class="w-8 h-8 sm:w-10 sm:h-10" title="Angular" />
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg"
-              class="w-8 h-8 sm:w-10 sm:h-10 hover:opacity-100 transition-opacity" title="Kubernetes" />
+              class="w-8 h-8 sm:w-10 sm:h-10" title="Kubernetes" />
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg"
-              class="w-8 h-8 sm:w-10 sm:h-10 hover:opacity-100 transition-opacity" title="Oracle DB" />
+              class="w-8 h-8 sm:w-10 sm:h-10" title="Oracle DB" />
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="py-12 bg-slate-900/30 border-y border-slate-900">
+  <section class="py-12 bg-slate-50 dark:bg-slate-900/30 border-y border-slate-200 dark:border-slate-900">
     <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-8">
       <div class="text-center">
-        <div class="text-2xl sm:text-3xl font-bold text-white">Júnior</div>
+        <div class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">Júnior</div>
         <div class="text-[10px] sm:text-xs text-slate-500 uppercase tracking-widest">Nível de Atuação</div>
       </div>
-      <div class="text-center border-l lg:border-l border-slate-800">
-        <div class="text-2xl sm:text-3xl font-bold text-emerald-400">Angular 17</div>
+      <div class="text-center border-l border-slate-200 dark:border-slate-800">
+        <div class="text-2xl sm:text-3xl font-bold text-emerald-600 dark:text-emerald-400">Angular 17</div>
         <div class="text-[10px] sm:text-xs text-slate-500 uppercase tracking-widest">Migration Expert</div>
       </div>
-      <div class="text-center border-t sm:border-t-0 lg:border-l border-slate-800 pt-8 sm:pt-0">
-        <div class="text-2xl sm:text-3xl font-bold text-indigo-400">K8s</div>
+      <div class="text-center border-l border-slate-200 dark:border-slate-800">
+        <div class="text-2xl sm:text-3xl font-bold text-indigo-600 dark:text-indigo-400">K8s</div>
         <div class="text-[10px] sm:text-xs text-slate-500 uppercase tracking-widest">DevOps/Cluster</div>
       </div>
-      <div class="text-center border-t sm:border-t-0 lg:border-l border-slate-800 pt-8 sm:pt-0">
-        <div class="text-2xl sm:text-3xl font-bold text-violet-400">Oracle</div>
+      <div class="text-center border-l border-slate-200 dark:border-slate-800">
+        <div class="text-2xl sm:text-3xl font-bold text-violet-600 dark:text-violet-400">Oracle</div>
         <div class="text-[10px] sm:text-xs text-slate-500 uppercase tracking-widest">Enterprise DB</div>
       </div>
     </div>
@@ -182,140 +195,55 @@
   <section id="about" class="py-24 relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid lg:grid-cols-2 gap-16 items-start">
-
         <div class="space-y-6 text-center lg:text-left">
-          <h2 class="text-indigo-400 font-mono text-sm tracking-[0.3em] uppercase">Trajetória</h2>
-          <h3 class="text-3xl lg:text-5xl font-bold text-white leading-tight">
-            Engenharia de Software com foco em <span class="text-indigo-500">Escalabilidade</span>
+          <h2 class="text-indigo-600 dark:text-indigo-400 font-mono text-sm tracking-[0.3em] uppercase">Trajetória</h2>
+          <h3 class="text-3xl lg:text-5xl font-bold text-slate-900 dark:text-white leading-tight">
+            Engenharia de Software com foco em <span class="text-indigo-600">Escalabilidade</span>
           </h3>
-
-          <div class="space-y-4 text-slate-400 text-base lg:text-lg leading-relaxed">
-            <p>
-              Com sólida experiência no ecossistema <strong>Java/Spring Boot</strong>, atuo no desenvolvimento de
+          <div class="space-y-4 text-slate-600 dark:text-slate-400 text-base lg:text-lg leading-relaxed font-medium">
+            <p>Com sólida experiência no ecossistema <strong>Java/Spring Boot</strong>, atuo no desenvolvimento de
               sistemas corporativos de alta criticidade. Minha expertise envolve o desenho de arquiteturas de
-              microsserviços, garantindo integridade de dados e alta performance em ambientes <strong>Oracle</strong> e
-              PostgreSQL.
-            </p>
-            <p>
-              Atualmente, lidero processos de modernização de frontend, realizando a migração estratégica de legados
-              para <strong>Angular 17</strong> (com foco em Signals e Standalone Components).
-            </p>
-            <p class="text-indigo-300 font-medium">
-              Estou em constante evolução na cultura <strong>DevOps</strong>, mergulhando na orquestração de containers
-              com Kubernetes e Docker para sustentar aplicações resilientes e automatizadas.
-            </p>
+              microsserviços, garantindo integridade de dados em ambientes <strong>Oracle</strong> e PostgreSQL.</p>
+            <p>Atualmente, lidero processos de modernização de frontend, realizando a migração estratégica de legados
+              para <strong>Angular 17</strong>.</p>
+            <p class="text-indigo-600 dark:text-indigo-300 font-bold">Estou em constante evolução na cultura
+              <strong>DevOps</strong>, mergulhando na orquestração de containers com Kubernetes e Docker.</p>
           </div>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div
-            class="p-6 bg-slate-900/40 border border-slate-800 rounded-2xl hover:border-indigo-500/30 transition-all group">
-            <div
-              class="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-indigo-500/20">
-              <i data-feather="terminal" class="text-indigo-400"></i>
-            </div>
-            <h4 class="text-white font-bold mb-2">Backend</h4>
-            <p class="text-xs text-slate-500 leading-relaxed">Desenvolvimento robusto com Java 17/21, Spring Boot 3 e
-              mensageria distribuída.</p>
+            class="p-6 bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-2xl group shadow-sm">
+            <div class="w-12 h-12 bg-indigo-50 dark:bg-indigo-500/10 rounded-lg flex items-center justify-center mb-4">
+              <i data-feather="terminal" class="text-indigo-600 dark:text-indigo-400"></i></div>
+            <h4 class="text-slate-900 dark:text-white font-bold mb-2">Backend</h4>
+            <p class="text-xs text-slate-500 leading-relaxed">Desenvolvimento robusto com Java 17/21 e Spring Boot 3.
+            </p>
           </div>
-
           <div
-            class="p-6 bg-slate-900/40 border border-slate-800 rounded-2xl hover:border-emerald-500/30 transition-all group">
+            class="p-6 bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-2xl group shadow-sm">
             <div
-              class="w-12 h-12 bg-emerald-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-emerald-500/20">
-              <i data-feather="cpu" class="text-emerald-400"></i>
-            </div>
-            <h4 class="text-white font-bold mb-2">DevOps & Cloud</h4>
-            <p class="text-xs text-slate-500 leading-relaxed">Containerização com Docker e orquestração de clusters via
-              Kubernetes.</p>
+              class="w-12 h-12 bg-emerald-50 dark:bg-emerald-500/10 rounded-lg flex items-center justify-center mb-4"><i
+                data-feather="cpu" class="text-emerald-600 dark:text-emerald-400"></i></div>
+            <h4 class="text-slate-900 dark:text-white font-bold mb-2">DevOps & Cloud</h4>
+            <p class="text-xs text-slate-500 leading-relaxed">Containerização com Docker e orquestração via Kubernetes.
+            </p>
           </div>
-
           <div
-            class="p-6 bg-slate-900/40 border border-slate-800 rounded-2xl hover:border-violet-500/30 transition-all group">
-            <div
-              class="w-12 h-12 bg-violet-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-violet-500/20">
-              <i data-feather="layout" class="text-violet-400"></i>
-            </div>
-            <h4 class="text-white font-bold mb-2">Frontend Moderno</h4>
-            <p class="text-xs text-slate-500 leading-relaxed">Migração e modernização para Angular 17+ com arquitetura
-              reativa.</p>
+            class="p-6 bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-2xl group shadow-sm">
+            <div class="w-12 h-12 bg-violet-50 dark:bg-violet-500/10 rounded-lg flex items-center justify-center mb-4">
+              <i data-feather="layout" class="text-violet-600 dark:text-violet-400"></i></div>
+            <h4 class="text-slate-900 dark:text-white font-bold mb-2">Frontend Moderno</h4>
+            <p class="text-xs text-slate-500 leading-relaxed">Migração para Angular 17+ com arquitetura reativa.</p>
           </div>
-
           <div
-            class="p-6 bg-slate-900/40 border border-slate-800 rounded-2xl hover:border-orange-500/30 transition-all group">
-            <div
-              class="w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-orange-500/20">
-              <i data-feather="database" class="text-orange-400"></i>
-            </div>
-            <h4 class="text-white font-bold mb-2">DB Enterprise</h4>
-            <p class="text-xs text-slate-500 leading-relaxed">Modelagem e otimização em bancos Oracle e PostgreSQL de
-              larga escala.</p>
+            class="p-6 bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-2xl group shadow-sm">
+            <div class="w-12 h-12 bg-orange-50 dark:bg-orange-500/10 rounded-lg flex items-center justify-center mb-4">
+              <i data-feather="database" class="text-orange-600 dark:text-orange-400"></i></div>
+            <h4 class="text-slate-900 dark:text-white font-bold mb-2">DB Enterprise</h4>
+            <p class="text-xs text-slate-500 leading-relaxed">Otimização em bancos Oracle e PostgreSQL de larga escala.
+            </p>
           </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section id="projects" class="py-20 px-6 max-w-7xl mx-auto">
-    <div class="mb-12 text-center lg:text-left">
-      <h2 class="text-indigo-400 font-mono text-sm mb-2 tracking-widest">PORTFÓLIO</h2>
-      <h3 class="text-3xl font-bold text-white">Projetos de Arquitetura</h3>
-    </div>
-
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div
-        class="p-6 bg-slate-900 border border-slate-800 rounded-2xl hover:border-indigo-500/50 transition-all flex flex-col justify-between">
-        <div>
-          <div class="flex justify-between items-start mb-4">
-            <i data-feather="box" class="text-indigo-400 w-6 h-6"></i>
-            <a href="https://github.com/Matheusleal98/desafio-microsservicos-nodejs"
-              class="text-slate-500 hover:text-white"><i data-feather="github" class="w-5 h-5"></i></a>
-          </div>
-          <h4 class="text-xl font-bold text-white mb-2">Microservices System</h4>
-          <p class="text-sm text-slate-400 mb-6">Arquitetura resiliente com RabbitMQ e Node/TypeScript, focada em
-            desacoplamento e consistência eventual.</p>
-        </div>
-        <div class="flex flex-wrap gap-2">
-          <span class="text-[10px] bg-slate-800 px-2 py-1 rounded">Node.Js</span>
-          <span class="text-[10px] bg-slate-800 px-2 py-1 rounded">TypeScript</span>
-          <span class="text-[10px] bg-slate-800 px-2 py-1 rounded">Docker</span>
-          <span class="text-[10px] bg-slate-800 px-2 py-1 rounded">RabbitMQ</span>
-          <span class="text-[10px] bg-slate-800 px-2 py-1 rounded">PostgreSQL</span>
-        </div>
-      </div>
-
-      <div
-        class="p-6 bg-slate-900 border border-slate-800 rounded-2xl hover:border-emerald-500/50 transition-all flex flex-col justify-between">
-        <div>
-          <div class="flex justify-between items-start mb-4">
-            <i data-feather="cloud" class="text-emerald-400 w-6 h-6"></i>
-            <a href="#" class="text-slate-500 hover:text-white"><i data-feather="github" class="w-5 h-5"></i></a>
-          </div>
-          <h4 class="text-xl font-bold text-white mb-2">Cloud Manager API</h4>
-          <p class="text-sm text-slate-400 mb-6">Backend robusto em Java 21/Spring Boot para controle de infraestrutura
-            crítica e auditoria.</p>
-        </div>
-        <div class="flex flex-wrap gap-2">
-          <span class="text-[10px] bg-slate-800 px-2 py-1 rounded">Java 21</span>
-          <span class="text-[10px] bg-slate-800 px-2 py-1 rounded">Security</span>
-        </div>
-      </div>
-
-      <div
-        class="p-6 bg-slate-900 border border-slate-800 rounded-2xl hover:border-violet-500/50 transition-all flex flex-col justify-between">
-        <div>
-          <div class="flex justify-between items-start mb-4">
-            <i data-feather="layers" class="text-violet-400 w-6 h-6"></i>
-            <a href="#" class="text-slate-500 hover:text-white"><i data-feather="github" class="w-5 h-5"></i></a>
-          </div>
-          <h4 class="text-xl font-bold text-white mb-2">Modern Angular App</h4>
-          <p class="text-sm text-slate-400 mb-6">Interface enterprise utilizando Angular 17, Signals e padrões modernos
-            de State Management.</p>
-        </div>
-        <div class="flex flex-wrap gap-2">
-          <span class="text-[10px] bg-slate-800 px-2 py-1 rounded">Signals</span>
-          <span class="text-[10px] bg-slate-800 px-2 py-1 rounded">Frontend</span>
         </div>
       </div>
     </div>
@@ -323,75 +251,110 @@
 
   <section id="projects" class="py-20 px-6 max-w-7xl mx-auto">
     <div class="mb-12 text-center lg:text-left">
-      <h2 class="text-indigo-400 font-mono text-sm mb-2 tracking-widest uppercase">Repositórios GitHub</h2>
-      <h3 class="text-3xl font-bold text-white">Projetos Recentes</h3>
+      <h2 class="text-indigo-600 dark:text-indigo-400 font-mono text-sm mb-2 tracking-widest uppercase font-bold">
+        Portfólio</h2>
+      <h3 class="text-3xl font-bold text-slate-900 dark:text-white">Destaques e Repositórios</h3>
     </div>
 
-    <div id="projects-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+      <div
+        class="p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl hover:border-indigo-500 transition-all flex flex-col justify-between shadow-sm">
+        <div>
+          <div class="flex justify-between items-start mb-4">
+            <i data-feather="box" class="text-indigo-600 dark:text-indigo-400 w-6 h-6"></i>
+            <a href="https://github.com/Matheusleal98/desafio-microsservicos-nodejs" target="_blank"
+              class="text-slate-400 hover:text-indigo-600"><i data-feather="github" class="w-5 h-5"></i></a>
+          </div>
+          <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Microservices System</h4>
+          <p class="text-sm text-slate-600 dark:text-slate-400 mb-6 line-clamp-2">Arquitetura resiliente com RabbitMQ e
+            Node/TypeScript.</p>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-[10px] bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded dark:text-slate-300">RabbitMQ</span>
+          <span class="text-[10px] bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded dark:text-slate-300">Docker</span>
+        </div>
+      </div>
     </div>
+
+    <div id="projects-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
   </section>
 
   <a href="https://wa.me/5561993809472" target="_blank" rel="noopener noreferrer"
-    class="fixed bottom-6 right-6 z-[999] flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-lg hover:scale-110 hover:shadow-emerald-500/20 transition-all duration-300 group">
+    class="fixed bottom-6 right-6 z-[999] flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-lg hover:scale-110 transition-all group">
     <i data-feather="message-circle" class="w-7 h-7 fill-current"></i>
-
     <span
-      class="absolute right-full mr-3 px-3 py-1 bg-slate-900 border border-slate-800 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-      Fale comigo!
-    </span>
+      class="absolute right-full mr-3 px-3 py-1 bg-slate-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Fale
+      comigo!</span>
   </a>
 
-  <footer id="contact" class="relative pt-20 pb-10 bg-slate-950 border-t border-slate-900 overflow-hidden">
-    <div
-      class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-indigo-500 to-transparent opacity-50">
+  <footer id="contact" class="py-20 bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-900 text-center">
+  <div class="max-w-7xl mx-auto px-6 space-y-12">
+    <div class="space-y-4">
+      <h3 class="text-3xl font-bold text-slate-900 dark:text-white">
+        Vamos construir algo <span class="text-indigo-600 dark:text-indigo-400">grande</span>?
+      </h3>
     </div>
 
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="flex flex-col items-center text-center space-y-8">
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-4 max-w-6xl mx-auto">
 
-        <div class="space-y-2">
-          <h3 class="text-2xl font-bold text-white">Vamos construir algo <span class="text-indigo-500">grande</span>?
-          </h3>
-          <p class="text-slate-500 max-w-md mx-auto text-sm">Disponível para novos desafios e colaborações em projetos
-            de alta escala.</p>
+      <a href="https://github.com/Matheusleal98" target="_blank"
+        class="group p-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 flex items-center gap-4">
+        <div class="w-10 h-10 bg-slate-100 dark:bg-slate-800 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
+          <i data-feather="github" class="w-5 h-5 text-slate-700 dark:text-slate-300"></i>
         </div>
+        <div class="text-left">
+          <p class="text-[9px] font-mono font-bold text-slate-400 uppercase tracking-widest">Code</p>
+          <p class="font-bold text-slate-900 dark:text-white text-sm">GitHub</p>
+        </div>
+      </a>
 
-        <div class="flex gap-4">
-          <a href="https://github.com/Matheusleal98" target="_blank"
-            class="w-12 h-12 bg-slate-900 border border-slate-800 rounded-xl flex items-center justify-center hover:border-indigo-500 hover:text-indigo-400 transition-all">
-            <i data-feather="github"></i>
-          </a>
-          <a href="https://linkedin.com/in/matheusleal98/" target="_blank"
-            class="w-12 h-12 bg-slate-900 border border-slate-800 rounded-xl flex items-center justify-center hover:border-indigo-500 hover:text-indigo-400 transition-all">
-            <i data-feather="linkedin"></i>
-          </a>
-          <a href="mailto:matheussleal98@gmail.com"
-            class="w-12 h-12 bg-slate-900 border border-slate-800 rounded-xl flex items-center justify-center hover:border-indigo-500 hover:text-indigo-400 transition-all">
-            <i data-feather="mail"></i>
+      <div class="md:col-span-2 group relative p-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm hover:shadow-xl hover:border-indigo-500/50 transition-all duration-300 flex items-center gap-4 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-indigo-500/5 to-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div class="w-10 h-10 bg-indigo-50 dark:bg-indigo-500/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform relative z-10 shrink-0">
+          <i data-feather="mail" class="w-5 h-5 text-indigo-600 dark:text-indigo-400"></i>
+        </div>
+        <div class="text-left flex-1 relative z-10 min-w-0">
+          <p class="text-[9px] font-mono font-bold text-slate-400 uppercase tracking-widest">Contato Profissional</p>
+          <a href="mailto:matheussleal98@gmail.com" class="block font-bold text-slate-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors truncate text-sm sm:text-base">
+            matheussleal98@gmail.com
           </a>
         </div>
-
-        <a href="https://docs.google.com/document/d/1uOTh_26L1OZ44Ckk9ZJg0LIwwpNF_myvaNUL0R_VDVc/export?format=pdf&tab=t.0"
-          class="group flex items-center gap-3 text-xs font-mono text-slate-400 hover:text-emerald-400 transition-colors">
-          <i data-feather="file-text" class="w-4 h-4 group-hover:animate-bounce"></i>
-          DOWNLOAD_RESUME.PDF
-        </a>
-
-        <div
-          class="pt-10 border-t border-slate-900 w-full flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] font-mono text-slate-600 uppercase tracking-widest">
-          <p>© 2026 Matheus Leal — Brasília, DF</p>
-          <p>Built with Tailwind & Passion</p>
-        </div>
+        <button onclick="copyEmail()" class="p-2 text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors relative z-20 shrink-0" title="Copiar e-mail">
+          <i id="copy-icon" data-feather="copy" class="w-4 h-4"></i>
+        </button>
       </div>
-    </div>
-  </footer>
 
-  <script src="https://unpkg.com/feather-icons"></script>
+      <a href="https://linkedin.com/in/matheusleal98/" target="_blank"
+        class="group p-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 flex items-center gap-4">
+        <div class="w-10 h-10 bg-blue-50 dark:bg-blue-500/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
+          <i data-feather="linkedin" class="w-5 h-5 text-blue-600 dark:text-blue-400"></i>
+        </div>
+        <div class="text-left">
+          <p class="text-[9px] font-mono font-bold text-slate-400 uppercase tracking-widest">Network</p>
+          <p class="font-bold text-slate-900 dark:text-white text-sm">LinkedIn</p>
+        </div>
+      </a>
+
+      <a href="./assets/curriculo.pdf" target="_blank"
+        class="group p-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm hover:shadow-xl hover:border-emerald-500/50 transition-all duration-300 flex items-center gap-4">
+        <div class="w-10 h-10 bg-emerald-50 dark:bg-emerald-500/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
+          <i data-feather="file-text" class="w-5 h-5 text-emerald-600 dark:text-emerald-400"></i>
+        </div>
+        <div class="text-left">
+          <p class="text-[9px] font-mono font-bold text-slate-400 uppercase tracking-widest">Resumo</p>
+          <p class="font-bold text-slate-900 dark:text-white text-sm">Currículo</p>
+        </div>
+      </a>
+
+    </div>
+
+    <p class="text-[10px] font-mono text-slate-500 uppercase tracking-[0.3em] pt-10 border-t border-slate-200 dark:border-slate-900">
+      © 2026 Matheus Leal — Brasília, DF
+    </p>
+  </div>
+</footer>
 
   <script src="script.js"></script>
-  <script>
-    feather.replace();
-  </script>
 </body>
 
 </html>
